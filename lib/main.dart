@@ -76,17 +76,17 @@ class _MyAppState extends State<MyApp> {
                       style: TextStyle(color: Colors.white, fontSize: 16),
                     ),
                     subtitle: Text(_estudiantes[index].career,
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Color.fromARGB(255, 138, 138, 138),
                             fontSize: 12)),
                     leading: CircleAvatar(
                         backgroundColor: Color.fromARGB(247, 235, 137, 10),
                         child: Text(
                           _estudiantes[index].name.substring(0, 1),
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: Color.fromARGB(247, 255, 255, 255)),
                         )),
-                    trailing: Icon(
+                    trailing: const Icon(
                       Icons.arrow_forward_ios,
                       color: Colors.white,
                     ),

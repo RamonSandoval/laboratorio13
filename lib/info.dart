@@ -29,27 +29,83 @@ class StudentInfo extends StatelessWidget {
         centerTitle: true,
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
-        child: Text(
-          'Nombre: ' +
-              name +
-              '\n' +
-              'Matricula: ' +
-              matricula +
-              '\n' +
-              'Carrera: ' +
-              career +
-              '\n' +
-              'Semestre: ' +
-              semester +
-              '\n' +
-              'Celular: ' +
-              phone +
-              '\n' +
-              'Corre: ' +
-              email,
-          style: TextStyle(color: Colors.white),
-        ),
+        padding: const EdgeInsets.only(top: 50, left: 10, right: 10),
+        child: Column(children: [
+          Row(children: [
+            const Icon(
+              Icons.person,
+              size: 40,
+              color: Color.fromARGB(247, 235, 137, 10),
+            ),
+            Text('  Nombre: ' + name + '\n',
+                style: TextStyle(color: Colors.white, fontSize: 16)),
+          ]),
+          const SizedBox(
+            height: 15,
+          ),
+          Row(children: [
+            const Icon(
+              Icons.password,
+              size: 40,
+              color: Color.fromARGB(247, 235, 137, 10),
+            ),
+            Text('  Matricula: ' + matricula + '\n',
+                style: TextStyle(color: Colors.white, fontSize: 16)),
+          ]),
+          const SizedBox(
+            height: 15,
+          ),
+          Row(children: [
+            const Icon(
+              Icons.school,
+              size: 40,
+              color: Color.fromARGB(247, 235, 137, 10),
+            ),
+            Text('  Carrera: ' + career + '\n',
+                style: TextStyle(color: Colors.white, fontSize: 16)),
+          ]),
+          const SizedBox(
+            height: 15,
+          ),
+          Row(children: [
+            const Icon(
+              Icons.grade,
+              size: 40,
+              color: Color.fromARGB(247, 235, 137, 10),
+            ),
+            Text('  Semestre: ' + semester + '\n',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                )),
+          ]),
+          const SizedBox(
+            height: 15,
+          ),
+          Row(children: [
+            const Icon(
+              Icons.phone,
+              size: 40,
+              color: Color.fromARGB(247, 235, 137, 10),
+            ),
+            Text('  Celular: ' + phone + '\n',
+                style: TextStyle(color: Colors.white, fontSize: 16)),
+          ]),
+          const SizedBox(
+            height: 15,
+          ),
+          Row(children: [
+            const Icon(
+              Icons.email,
+              size: 40,
+              color: Color.fromARGB(247, 235, 137, 10),
+            ),
+            Text(
+              '  Correo: ' + email,
+              style: TextStyle(color: Colors.white, fontSize: 16),
+            ),
+          ]),
+        ]),
       ),
     );
   }
