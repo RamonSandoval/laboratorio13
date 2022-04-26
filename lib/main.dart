@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'info.dart';
 
@@ -11,7 +10,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   //lista
-  List<Estudiante> _estudiantes = [
+  final List<Estudiante> _estudiantes = [
     Estudiante(
       '1860490',
       'Alfonso Victoria P.',
@@ -41,9 +40,9 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
-          title: Padding(
-            padding: const EdgeInsets.only(top: 10, left: 10),
-            child: const Text(
+          title: const Padding(
+            padding: EdgeInsets.only(top: 10, left: 10),
+            child: Text(
               'Estudiantes',
               style: TextStyle(fontSize: 25),
             ),

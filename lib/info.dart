@@ -21,11 +21,12 @@ class StudentInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(41, 39, 46, 300),
+      backgroundColor: const Color.fromRGBO(41, 39, 46, 300),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: Text('Informacion del Alumno', style: TextStyle(fontSize: 20)),
+        title: const Text('Informacion del Alumno',
+            style: TextStyle(fontSize: 20)),
         centerTitle: true,
       ),
       body: Padding(
@@ -38,7 +39,7 @@ class StudentInfo extends StatelessWidget {
               color: Color.fromARGB(247, 235, 137, 10),
             ),
             Text('  Nombre: ' + name + '\n',
-                style: TextStyle(color: Colors.white, fontSize: 16)),
+                style: const TextStyle(color: Colors.white, fontSize: 16)),
           ]),
           const SizedBox(
             height: 15,
@@ -50,7 +51,7 @@ class StudentInfo extends StatelessWidget {
               color: Color.fromARGB(247, 235, 137, 10),
             ),
             Text('  Matricula: ' + matricula + '\n',
-                style: TextStyle(color: Colors.white, fontSize: 16)),
+                style: const TextStyle(color: Colors.white, fontSize: 16)),
           ]),
           const SizedBox(
             height: 15,
@@ -62,7 +63,7 @@ class StudentInfo extends StatelessWidget {
               color: Color.fromARGB(247, 235, 137, 10),
             ),
             Text('  Carrera: ' + career + '\n',
-                style: TextStyle(color: Colors.white, fontSize: 16)),
+                style: const TextStyle(color: Colors.white, fontSize: 16)),
           ]),
           const SizedBox(
             height: 15,
@@ -74,7 +75,7 @@ class StudentInfo extends StatelessWidget {
               color: Color.fromARGB(247, 235, 137, 10),
             ),
             Text('  Semestre: ' + semester + '\n',
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 16,
                 )),
@@ -89,7 +90,7 @@ class StudentInfo extends StatelessWidget {
               color: Color.fromARGB(247, 235, 137, 10),
             ),
             Text('  Celular: ' + phone + '\n',
-                style: TextStyle(color: Colors.white, fontSize: 16)),
+                style: const TextStyle(color: Colors.white, fontSize: 16)),
           ]),
           const SizedBox(
             height: 15,
@@ -102,7 +103,7 @@ class StudentInfo extends StatelessWidget {
             ),
             Text(
               '  Correo: ' + email,
-              style: TextStyle(color: Colors.white, fontSize: 16),
+              style: const TextStyle(color: Colors.white, fontSize: 16),
             ),
           ]),
         ]),
