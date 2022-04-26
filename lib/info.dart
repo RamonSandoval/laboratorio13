@@ -50,7 +50,7 @@ class StudentInfo extends StatelessWidget {
               size: 40,
               color: Color.fromARGB(247, 235, 137, 10),
             ),
-            Text('  Matricula: ' + matricula + '\n',
+            Text('  Matrícula: ' + matricula + '\n',
                 style: const TextStyle(color: Colors.white, fontSize: 16)),
           ]),
           const SizedBox(
