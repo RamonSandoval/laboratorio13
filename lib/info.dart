@@ -25,7 +25,7 @@ class StudentInfo extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: const Text('Informacion del Alumno',
+        title: const Text('Información del Alumno',
             style: TextStyle(fontSize: 20)),
         centerTitle: true,
       ),

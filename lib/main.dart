@@ -21,13 +21,13 @@ class _MyAppState extends State<MyApp> {
     ),
     Estudiante('1860479', 'Armando Casas F.', 'Ing. Electronica', '6',
         '6461839021', 'al18760479@ite.edu.mx'),
-    Estudiante('18760465', 'Daniel Hernandez V.', 'Ing. Electromecanica', '8',
+    Estudiante('18760465', 'Daniel Hernández V.', 'Ing. Electromecanica', '8',
         '6461205321', 'al1860465@ite.edu.mx'),
     Estudiante('1860480', 'Felipe Ferras G.', 'Ing. Mecatronica', '3',
         '6462901842', 'al1860480@ite.edu.mx'),
-    Estudiante('1860469', 'Jesus Martin Bedoy V.', 'Ing. Electromecanica', '8',
+    Estudiante('1860469', 'Jesús Martín Bedoy V.', 'Ing. Electromecanica', '8',
         '6469119111', 'al18760469@ite.edu.mx'),
-    Estudiante('18760478', 'Ramon Sandoval P.', 'Ing. Sistemas', '8',
+    Estudiante('18760478', 'Ramón Sandoval P.', 'Ing. Sistemas', '8',
         '6462014556', 'al18760478@ite.edu.mx'),
   ];
 
