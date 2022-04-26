@@ -97,34 +97,6 @@ class _MyAppState extends State<MyApp> {
       ),
     );
   }
-
-  _borrarEstudiante(context, estudiante) {
-    showDialog(
-        context: context,
-        builder: (_) => AlertDialog(
-                title: Text('Eliminar estudiante'),
-                content: Text("Seguro que desea eliminiar a " +
-                    estudiante.name +
-                    ' del grupo?'),
-                actions: [
-                  CupertinoButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: const Text("Cancelar"),
-                  ),
-                  CupertinoButton(
-                      child: const Text('Eliminar',
-                          style: TextStyle(color: Colors.red)),
-                      onPressed: () {
-                        print(estudiante.name);
-                        this.setState(() {
-                          this._estudiantes.remove(estudiante);
-                        });
-                        Navigator.pop(context);
-                      })
-                ]));
-  }
 }
 
 class Estudiante {
