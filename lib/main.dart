@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'info.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
@@ -30,33 +32,23 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Estudiantes 8SA'),
           centerTitle: true,
         ),
-        body: ListView.builder(
-            itemCount: _estudiantes.length,
-            itemBuilder: (context, index) {
-              return ListTile(
-                onTap: () {
-                  this._borrarEstudiante(context, _estudiantes[index]);
-                },
-                title: Text(_estudiantes[index].name),
-                subtitle: Text('Matricula: ' +
-                    _estudiantes[index].matricula +
-                    '\n' +
-                    'Carrera: ' +
-                    _estudiantes[index].career +
-                    '\n' +
-                    'Semestre: ' +
-                    _estudiantes[index].semester +
-                    '\n' +
-                    'Teléfono: ' +
-                    _estudiantes[index].phone +
-                    '\n' +
-                    'Correo: ' +
-                    _estudiantes[index].phone),
-                leading: CircleAvatar(
-                    child: Text(_estudiantes[index].name.substring(0, 1))),
-                trailing: Icon(Icons.arrow_forward_ios),
-              );
-            }),
+        body: Padding(
+          padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
+          child: ListView.builder(
+              itemCount: _estudiantes.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => StudentInfo()));
+                  },
+                  title: Text(_estudiantes[index].name),
+                  leading: CircleAvatar(
+                      child: Text(_estudiantes[index].name.substring(0, 1))),
+                  trailing: Icon(Icons.arrow_forward_ios),
+                );
+              }),
+        ),
       ),
     );
   }
