@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'info.dart';
 
 void main() => runApp(MyApp());
@@ -13,14 +12,18 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   //lista
   List<Estudiante> _estudiantes = [
-    Estudiante('18760478', 'Ramon Sandoval P.', 'Ing. Sistemas', '8',
-        '6462014556', 'al18760478@ite.edu.mx'),
-    Estudiante('18760465', 'Daniel Hernandez', 'Ing. Electromecanica', '8',
-        '6461205321', 'al1860465@ite.edu.mx'),
-    Estudiante('1860469', 'Jesus Martin Bedoy V.', 'Ing. Electromecanica', '8',
-        '6469119111', 'al18760469@ite.edu.mx'),
+    Estudiante('1860490', 'Alfonso Victoria P.', 'Ing. Industrial', '7',
+        '6462192093', 'al1860490@ite.edu.mx'),
     Estudiante('1860479', 'Armando Casas', 'Ing. Electronica', '6',
         '6461839021', 'al18760479@ite.edu.mx'),
+    Estudiante('18760465', 'Daniel Hernandez', 'Ing. Electromecanica', '8',
+        '6461205321', 'al1860465@ite.edu.mx'),
+    Estudiante('1860480', 'Felipe Ferras G.', 'Ing. Mecatronica', '3',
+        '6462901842', 'al1860480@ite.edu.mx'),
+    Estudiante('1860469', 'Jesus Martin Bedoy V.', 'Ing. Electromecanica', '8',
+        '6469119111', 'al18760469@ite.edu.mx'),
+    Estudiante('18760478', 'Ramon Sandoval P.', 'Ing. Sistemas', '8',
+        '6462014556', 'al18760478@ite.edu.mx'),
   ];
 
   @override
@@ -29,7 +32,7 @@ class _MyAppState extends State<MyApp> {
       title: 'Material App',
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Estudiantes 8SA'),
+          title: const Text('Estudiantes TECNM'),
           centerTitle: true,
         ),
         body: Padding(
@@ -39,8 +42,17 @@ class _MyAppState extends State<MyApp> {
               itemBuilder: (context, index) {
                 return ListTile(
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => StudentInfo()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => StudentInfo(
+                                  name: _estudiantes[index].name,
+                                  matricula: _estudiantes[index].matricula,
+                                  career: _estudiantes[index].career,
+                                  semester: _estudiantes[index].semester,
+                                  phone: _estudiantes[index].phone,
+                                  email: _estudiantes[index].email,
+                                )));
                   },
                   title: Text(_estudiantes[index].name),
                   leading: CircleAvatar(
