@@ -21,13 +21,35 @@ class StudentInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(41, 39, 46, 300),
       appBar: AppBar(
-        title: Text('Informacion del Alumno'),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        title: Text('Informacion del Alumno', style: TextStyle(fontSize: 20)),
         centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
-        child: Text(name + matricula + career + semester + phone + email),
+        child: Text(
+          'Nombre: ' +
+              name +
+              '\n' +
+              'Matricula: ' +
+              matricula +
+              '\n' +
+              'Carrera: ' +
+              career +
+              '\n' +
+              'Semestre: ' +
+              semester +
+              '\n' +
+              'Celular: ' +
+              phone +
+              '\n' +
+              'Corre: ' +
+              email,
+          style: TextStyle(color: Colors.white),
+        ),
       ),
     );
   }
