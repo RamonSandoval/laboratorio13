@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -26,26 +27,66 @@ class _MyAppState extends State<MyApp> {
       title: 'Material App',
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Material App Bar'),
+          title: const Text('Estudiantes 8SA'),
+          centerTitle: true,
         ),
         body: ListView.builder(
             itemCount: _estudiantes.length,
             itemBuilder: (context, index) {
               return ListTile(
-                  title: Text(_estudiantes[index].name +
-                      '' +
-                      _estudiantes[index].matricula +
-                      '' +
-                      _estudiantes[index].career +
-                      '' +
-                      _estudiantes[index].semester +
-                      '' +
-                      _estudiantes[index].phone +
-                      '' +
-                      _estudiantes[index].email));
+                onTap: () {
+                  this._borrarEstudiante(context, _estudiantes[index]);
+                },
+                title: Text(_estudiantes[index].name),
+                subtitle: Text('Matricula: ' +
+                    _estudiantes[index].matricula +
+                    '\n' +
+                    'Carrera: ' +
+                    _estudiantes[index].career +
+                    '\n' +
+                    'Semestre: ' +
+                    _estudiantes[index].semester +
+                    '\n' +
+                    'Teléfono: ' +
+                    _estudiantes[index].phone +
+                    '\n' +
+                    'Correo: ' +
+                    _estudiantes[index].phone),
+                leading: CircleAvatar(
+                    child: Text(_estudiantes[index].name.substring(0, 1))),
+                trailing: Icon(Icons.arrow_forward_ios),
+              );
             }),
       ),
     );
+  }
+
+  _borrarEstudiante(context, estudiante) {
+    showDialog(
+        context: context,
+        builder: (_) => AlertDialog(
+                title: Text('Eliminar estudiante'),
+                content: Text("Seguro que desea eliminiar a " +
+                    estudiante.name +
+                    ' del grupo?'),
+                actions: [
+                  CupertinoButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Text("Cancelar"),
+                  ),
+                  CupertinoButton(
+                      child: const Text('Eliminar',
+                          style: TextStyle(color: Colors.red)),
+                      onPressed: () {
+                        print(estudiante.name);
+                        this.setState(() {
+                          this._estudiantes.remove(estudiante);
+                        });
+                        Navigator.pop(context);
+                      })
+                ]));
   }
 }
 
