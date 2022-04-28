@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'info.dart';
+import 'dart:async' show Future;
+import 'package:flutter/services.dart' show rootBundle;
+import 'dart:convert';
+import 'package:flutter/services.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,27 +13,19 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  //lista
-  final List<Estudiante> _estudiantes = [
-    Estudiante(
-      '1860490',
-      'Alfonso Victoria P.',
-      'Ing. Industrial',
-      '7',
-      '6462192093',
-      'al1860490@ite.edu.mx',
-    ),
-    Estudiante('1860479', 'Armando Casas F.', 'Ing. Electronica', '6',
-        '6461839021', 'al18760479@ite.edu.mx'),
-    Estudiante('18760465', 'Daniel Hernández V.', 'Ing. Electromecanica', '8',
-        '6461205321', 'al1860465@ite.edu.mx'),
-    Estudiante('1860480', 'Felipe Ferras G.', 'Ing. Mecatronica', '3',
-        '6462901842', 'al1860480@ite.edu.mx'),
-    Estudiante('1860469', 'Jesús Martín Bedoy V.', 'Ing. Electromecanica', '8',
-        '6469119111', 'al18760469@ite.edu.mx'),
-    Estudiante('18760478', 'Ramón Sandoval P.', 'Ing. Sistemas', '8',
-        '6462014556', 'al18760478@ite.edu.mx'),
-  ];
+  List estudiantes = [];
+
+  Future<String> infoJson() async {
+    var jsonFile = await rootBundle.loadString('assets/estudiantes.json');
+    setState(() => estudiantes = json.decode(jsonFile));
+    return 'success';
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    this.infoJson();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,8 +47,15 @@ class _MyAppState extends State<MyApp> {
         body: Padding(
           padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
           child: ListView.builder(
-              itemCount: _estudiantes.length,
+              itemCount: estudiantes == null ? 0 : estudiantes.length,
               itemBuilder: (context, index) {
+                var name = estudiantes[index]['name'];
+                var matricula = estudiantes[index]['matricula'];
+                var career = estudiantes[index]['career'];
+                var semester = estudiantes[index]['semester'];
+                var phone = estudiantes[index]['phone'];
+                var email = estudiantes[index]['email'];
+
                 return Container(
                   alignment: Alignment.center,
                   height: 90,
@@ -62,26 +65,26 @@ class _MyAppState extends State<MyApp> {
                           context,
                           MaterialPageRoute(
                               builder: (context) => StudentInfo(
-                                    name: _estudiantes[index].name,
-                                    matricula: _estudiantes[index].matricula,
-                                    career: _estudiantes[index].career,
-                                    semester: _estudiantes[index].semester,
-                                    phone: _estudiantes[index].phone,
-                                    email: _estudiantes[index].email,
+                                    name: name,
+                                    matricula: matricula,
+                                    career: career,
+                                    semester: semester,
+                                    phone: phone,
+                                    email: email,
                                   )));
                     },
                     title: Text(
-                      _estudiantes[index].name,
+                      name,
                       style: TextStyle(color: Colors.white, fontSize: 16),
                     ),
-                    subtitle: Text(_estudiantes[index].career,
+                    subtitle: Text(career,
                         style: const TextStyle(
                             color: Color.fromARGB(255, 138, 138, 138),
                             fontSize: 12)),
                     leading: CircleAvatar(
                         backgroundColor: Color.fromARGB(247, 235, 137, 10),
                         child: Text(
-                          _estudiantes[index].name.substring(0, 1),
+                          name.substring(0, 1),
                           style: const TextStyle(
                               color: Color.fromARGB(247, 255, 255, 255)),
                         )),
@@ -96,16 +99,4 @@ class _MyAppState extends State<MyApp> {
       ),
     );
   }
-}
-
-class Estudiante {
-  String matricula;
-  String name;
-  String career;
-  String semester;
-  String phone;
-  String email;
-
-  Estudiante(this.matricula, this.name, this.career, this.semester, this.phone,
-      this.email);
 }
